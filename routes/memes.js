@@ -15,4 +15,6 @@ router.get("/:memeID/edit", memeController.editMeme)
 
 router.post("/:memeID/edit", memeController.editMemeForm)
 
+router.get("/:memeID/delete", memeController.deleteMeme)
+
 module.exports = router

@@ -96,3 +96,25 @@ exports.editMemeForm = async (req, res) => {
     res.redirect(`/memes/${memeID}`)
 }
 
+exports.deleteMeme = async (req, res) => {
+
+    const { memeID } = req.params
+
+    try {
+        const deletedMeme = await Meme.findByIdAndRemove(memeID)
+
+        console.log(deletedMeme)
+
+        res.redirect("/memes")
+
+    } catch (error) {
+        console.log(error)
+
+        res.redirect(`/memes/${memeID}`, {
+            msgError: "No se pudieron guardar los cambios."
+            
+        })
+
+    }
+
+}
