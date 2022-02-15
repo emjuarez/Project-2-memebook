@@ -1,3 +1,4 @@
+const async = require("hbs/lib/async")
 const Meme = require("../models/Meme")
 
 exports.getMemes = async (req, res) => {
@@ -65,5 +66,33 @@ try {
 
 }
 
+}
+
+exports.editMeme = async (req, res) => {
+
+    const {memeID} = req.params
+    
+    const singleMeme = await Meme.findById(memeID)
+
+    res.render("memes/edit", {
+        singleMeme
+    })
+
+}
+
+exports.editMemeForm = async (req, res) => {
+
+    const { name, about, origin }= req.body
+
+    const { memeID } = req.params
+
+    await Meme.findByIdAndUpdate(
+        memeID,
+        { name, about, origin },
+        { new: true }
+
+    )
+    
+    res.redirect(`/memes/${memeID}`)
 }
 
