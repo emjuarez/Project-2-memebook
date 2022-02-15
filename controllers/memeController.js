@@ -1,5 +1,6 @@
-const async = require("hbs/lib/async")
 const Meme = require("../models/Meme")
+const fileUploader = require('../config/cloudinary')
+
 
 exports.getMemes = async (req, res) => {
 
@@ -20,11 +21,11 @@ exports.createMeme = async (req, res) => {
 
 exports.createMemeForm = async (req, res) => {
 
-    const { name, about, origin } = req.body
+    const { name, about, origin, imageUrl } = req.body
 
     try {
 
-        const newMeme = await Meme.create({ name, about, origin })
+        const newMeme = await Meme.create({ name, about, origin, imageUrl })
 
         console.log(newMeme)
 
@@ -82,13 +83,13 @@ exports.editMeme = async (req, res) => {
 
 exports.editMemeForm = async (req, res) => {
 
-    const { name, about, origin }= req.body
+    const { name, about, origin, imageUrl }= req.body
 
     const { memeID } = req.params
 
     await Meme.findByIdAndUpdate(
         memeID,
-        { name, about, origin },
+        { name, about, origin, imageUrl },
         { new: true }
 
     )
@@ -118,3 +119,41 @@ exports.deleteMeme = async (req, res) => {
     }
 
 }
+
+exports.fileUploader = async (req, res) => {
+
+    const { imageUrl } = req.body;
+   
+    try {
+        fileUploader.single('meme-image')
+
+        const newMemeImage = await Meme.create({ imageUrl: req.file.path })
+
+        console.log(newMemeImage)
+
+        return res.redirect("/memes")
+
+    } catch (error) {
+        console.log(`Error while uploading the image: ${error}`) 
+    }
+
+
+//       .then(newlyCreatedMovieFromDB => {
+//         console.log(newlyCreatedMovieFromDB);
+//       })
+//       .catch(error => console.log(`Error while creating a new meme: ${error}`));
+ };
+
+
+
+//   router.post('/movies/create', fileUploader.single('movie-cover-image'), (req, res) => {
+//     const { title, description } = req.body;
+   
+//     Movie.create({ title, description, imageUrl: req.file.path })
+//       .then(newlyCreatedMovieFromDB => {
+//         console.log(newlyCreatedMovieFromDB);
+//       })
+//       .catch(error => console.log(`Error while creating a new movie: ${error}`));
+//   });
+   
+//   module.exports = router;

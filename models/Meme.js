@@ -11,8 +11,10 @@ const memeSchema = mongoose.Schema({
     },
     origin: {
         type: String,
+    },
+    imageUrl: {
+        type: String,
     }
-
 })
 
 const Meme = mongoose.model("Meme", memeSchema)

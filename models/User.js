@@ -25,7 +25,8 @@ const userSchema = mongoose.Schema({
 		type: String,
 		required: true
 	}
-}, 	{
+}, 	
+	{
 		timestamps: true // Guardar la fecha y hora en la cual se creó un documento
 	}
 )

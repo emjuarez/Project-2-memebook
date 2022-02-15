@@ -1,7 +1,9 @@
 const express = require("express")
 const router = express.Router()
 
+
 const memeController = require("./../controllers/memeController")
+
 
 router.get("/", memeController.getMemes)
 
@@ -16,5 +18,8 @@ router.get("/:memeID/edit", memeController.editMeme)
 router.post("/:memeID/edit", memeController.editMemeForm)
 
 router.get("/:memeID/delete", memeController.deleteMeme)
+
+router.post("/create", memeController.fileUploader)
+   
 
 module.exports = router
