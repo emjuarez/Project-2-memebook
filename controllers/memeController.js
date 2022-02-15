@@ -41,3 +41,29 @@ exports.createMemeForm = async (req, res) => {
 
 }
 
+exports.getDetails = async (req, res) => {
+
+try {
+    
+    const { memeID } = req.params
+    console.log(memeID)
+    console.log(typeof memeID)
+
+    const singleMeme = await Meme.findById(memeID)
+
+    return res.render("memes/details", {
+        singleMeme
+    })
+
+} catch (error) {
+    
+    console.log(error)
+
+    return res.render(`memes`, {
+        errorMsg:"Hubo un problema al cargar los detalles del meme"
+    })
+
+}
+
+}
+

@@ -9,5 +9,6 @@ router.get("/create", memeController.createMeme)
 
 router.post("/create", memeController.createMemeForm)
 
+router.get("/:memeID", memeController.getDetails)
 
 module.exports = router
