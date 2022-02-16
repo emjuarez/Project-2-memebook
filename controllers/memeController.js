@@ -1,5 +1,5 @@
 const Meme = require("../models/Meme")
-const fileUploader = require('../config/cloudinary')
+const fileUploader = require("../config/cloudinary")
 
 
 exports.getMemes = async (req, res) => {
@@ -122,9 +122,10 @@ exports.deleteMeme = async (req, res) => {
 
 exports.fileUploader = async (req, res) => {
 
-    const { imageUrl } = req.body;
+    const { imageUrl } = req.body
    
     try {
+        
         fileUploader.single('meme-image')
 
         const newMemeImage = await Meme.create({ imageUrl: req.file.path })
