@@ -27,3 +27,9 @@ exports.privateAreas = (req, res, next) => {
 
 
 }
+
+// exports.privateAreas = (req, res, next) => {
+// 	if(){
+		
+// 	}
+// }

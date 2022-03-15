@@ -1,5 +1,5 @@
 
-<div class="bg-white">
+{{!-- <div class="bg-white">
   <main>
     <div class="relative mt-20">
       <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
@@ -8,9 +8,7 @@
           <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
             <!-- Testimonial card-->
             <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
-              <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fp-x=0.5&fp-y=0.6&fp-z=3&width=1440&height=1440&sat=-100" alt="">
-              <div class="absolute inset-0 bg-rose-500 mix-blend-multiply"></div>
-              <div class="absolute inset-0 bg-gradient-to-t from-rose-600 via-rose-600 opacity-90"></div>
+              <span class="absolute inset-0 h-full w-full object-cover">{{singleMeme.imageUrl}}</span> 
              
             </div>
           </div>
@@ -57,5 +55,70 @@
         </div>
       </div>
     </div>
-</div>
+</div> --}}
 
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  ```
+-->
+<div class="bg-white">
+  <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+    <!-- Product details -->
+    <div class="lg:max-w-lg lg:self-end">
+      
+
+      <div class="mt-4">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{singleMeme.name}}</h1>
+      </div>
+
+      <section aria-labelledby="information-heading" class="mt-4">
+        <h2 id="information-heading" class="sr-only">Product information</h2>
+
+        <div class="mt-6 text-gray-500 space-y-6">
+              <p class="text-lg">{{singleMeme.about}}</p>
+              <p class="text-lg">{{singleMeme.origin}}</p>
+            </div>
+      </section>
+    </div>
+
+    <!-- Product image -->
+    <div class="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
+      <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+        <img src={{singleMeme.imageUrl}} alt="Model wearing light green backpack with black canvas straps and front zipper pouch." class="w-full h-full object-center object-cover">
+      </div>
+    </div>
+
+    <!-- Product form -->
+    <div class="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+      <section aria-labelledby="options-heading">
+        <h2 id="options-heading" class="sr-only">Product options</h2>
+
+         <div class="mt-700">
+              <a href="/memes/{{singleMeme._id}}/edit" class="text-base font-medium text-rose-500"> Edit&nbsp&rarr; </a>
+              <a href="/memes/{{singleMeme._id}}/delete" class="text-base font-medium text-rose-500"> Delete&nbsp&rarr; </a>
+          </div>
+
+        {{!-- <form>
+          <div class="mt-4">
+           
+          </div>
+          <div class="mt-10">
+            <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Add to bag</button>
+          </div>
+        </form> --}}
+      </section>
+    </div>
+  </div>
+</div>
