@@ -1,84 +1,10 @@
 
-{{!-- <div class="bg-white">
-  <main>
-    <div class="relative mt-20">
-      <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
-         <div class="relative sm:py-16 lg:py-0">
-          
-          <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
-            <!-- Testimonial card-->
-            <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
-              <span class="absolute inset-0 h-full w-full object-cover">{{singleMeme.imageUrl}}</span> 
-             
-            </div>
-          </div>
-        </div> 
 
-        <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
-          <!-- Content area -->
-          <div class="pt-12 sm:pt-16 lg:pt-20">
-            <h2 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">{{singleMeme.name}}</h2>
-            <div class="mt-6 text-gray-500 space-y-6">
-              <p class="text-lg">{{singleMeme.about}}</p>
-              <p class="text-base leading-7">{{singleMeme.origin}}</p>
-            </div>
-          </div>
-
-          <!-- Stats section -->
-          <div class="mt-10">
-            <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Founded</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">2021</dd>
-              </div>
-
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Employees</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">5</dd>
-              </div>
-
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Beta Users</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">521</dd>
-              </div>
-
-              <div class="border-t-2 border-gray-100 pt-6">
-                <dt class="text-base font-medium text-gray-500">Raised</dt>
-                <dd class="text-3xl font-extrabold tracking-tight text-gray-900">$25M</dd>
-              </div>
-            </dl>
-            <div class="mt-10">
-              <a href="/memes/{{singleMeme._id}}/edit" class="text-base font-medium text-rose-500"> Edit&nbsp&rarr; </a>
-              <a href="/memes/{{singleMeme._id}}/delete" class="text-base font-medium text-rose-500"> Delete&nbsp&rarr; </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div> --}}
-
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <div class="bg-white">
   <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
     <!-- Product details -->
     <div class="lg:max-w-lg lg:self-end">
       
-
       <div class="mt-4">
         <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{singleMeme.name}}</h1>
       </div>
@@ -93,14 +19,12 @@
       </section>
     </div>
 
-    <!-- Product image -->
     <div class="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
       <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
         <img src={{singleMeme.imageUrl}} alt="Model wearing light green backpack with black canvas straps and front zipper pouch." class="w-full h-full object-center object-cover">
       </div>
     </div>
-
-    <!-- Product form -->
+  
     <div class="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
       <section aria-labelledby="options-heading">
         <h2 id="options-heading" class="sr-only">Product options</h2>
@@ -110,14 +34,6 @@
               <a href="/memes/{{singleMeme._id}}/delete" class="text-base font-medium text-rose-500"> Delete&nbsp&rarr; </a>
           </div>
 
-        {{!-- <form>
-          <div class="mt-4">
-           
-          </div>
-          <div class="mt-10">
-            <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Add to bag</button>
-          </div>
-        </form> --}}
       </section>
     </div>
   </div>
