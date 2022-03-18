@@ -1,0 +1,40 @@
+
+
+<div class="bg-white">
+  <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+    <!-- Product details -->
+    <div class="lg:max-w-lg lg:self-end">
+      
+      <div class="mt-4">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{{singleMeme.name}}</h1>
+      </div>
+
+      <section aria-labelledby="information-heading" class="mt-4">
+        <h2 id="information-heading" class="sr-only">Product information</h2>
+
+        <div class="mt-6 text-gray-500 space-y-6">
+              <p class="text-lg">{{singleMeme.about}}</p>
+              <p class="text-lg">{{singleMeme.origin}}</p>
+            </div>
+      </section>
+    </div>
+
+    <div class="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
+      <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+        <img src={{singleMeme.imageUrl}} alt="Model wearing light green backpack with black canvas straps and front zipper pouch." class="w-full h-full object-center object-cover">
+      </div>
+    </div>
+  
+    <div class="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+      <section aria-labelledby="options-heading">
+        <h2 id="options-heading" class="sr-only">Product options</h2>
+
+         <div class="mt-700">
+              <a href="/memes/{{singleMeme._id}}/edit" class="text-base font-medium text-rose-500"> Edit&nbsp&rarr; </a>
+              <a href="/memes/{{singleMeme._id}}/delete" class="text-base font-medium text-rose-500"> Delete&nbsp&rarr; </a>
+          </div>
+
+      </section>
+    </div>
+  </div>
+</div>

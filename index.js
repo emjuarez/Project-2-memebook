@@ -7,11 +7,14 @@ const app			= express()
 
 const hbs			= require("hbs")
 
-const connectDB		= require("./config/db")
+const connectDB			= require("./config/db")
+const sessionManager 	= require("./config/session")
 
 
 // 2. MIDDLEWARES
 require("dotenv").config()
+
+sessionManager(app)
 
 connectDB()
 
@@ -23,7 +26,18 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // 3. RUTEO
+// LAYOUT MIDDLEWARE
+app.use((req, res, next) => {
+	
+	res.locals.currentUser = req.session.currentUser
+
+	next()
+})
+
+
 app.use("/", require("./routes/index"))
+app.use("/auth", require("./routes/auth"))
+app.use("/memes", require("./routes/memes"))
 
 
 
