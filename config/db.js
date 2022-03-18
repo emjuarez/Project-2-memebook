@@ -1,10 +1,6 @@
-// ./config/db.js
 
-// 1. IMPORTACIONES
 const mongoose = require("mongoose")
 
-
-// 2. FUNCIÓN
 const connectDB = async () => {
 
 	try {
@@ -25,5 +21,5 @@ const connectDB = async () => {
 
 }
 
-// 3. EXPORTACIÓN
+
 module.exports = connectDB

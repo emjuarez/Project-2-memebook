@@ -14,10 +14,9 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     allowed_formats: ['jpg', 'png'],
-    folder: 'memebook' // The name of the folder in cloudinary
-    // resource_type: 'raw' => this is in case you want to upload other type of files, not just images
+    folder: 'memebook' 
+    
   }
 });
 
-//                     storage: storage
 module.exports = multer({ storage });

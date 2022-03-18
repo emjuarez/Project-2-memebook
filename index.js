@@ -11,7 +11,7 @@ const connectDB			= require("./config/db")
 const sessionManager 	= require("./config/session")
 
 
-// 2. MIDDLEWARES
+
 require("dotenv").config()
 
 sessionManager(app)
@@ -25,8 +25,6 @@ app.set("view engine", "hbs")
 app.use(express.urlencoded({ extended: true }))
 
 
-// 3. RUTEO
-// LAYOUT MIDDLEWARE
 app.use((req, res, next) => {
 	
 	res.locals.currentUser = req.session.currentUser
@@ -41,5 +39,4 @@ app.use("/memes", require("./routes/memes"))
 
 
 
-// 4. SERVIDOR
 app.listen(process.env.PORT, () => console.log(`Servidor activo en puerto ${process.env.PORT}`))

@@ -6,8 +6,6 @@ exports.getMemes = async (req, res) => {
 
     const allMemes = await Meme.find({})
 
-    console.log(allMemes)
-
     return res.render("memes/memes", {
         memes: allMemes
     })
@@ -27,13 +25,10 @@ exports.createMemeForm = async (req, res) => {
 
         const newMeme = await Meme.create({ name, about, origin, imageUrl })
 
-        console.log(newMeme)
 
         return res.redirect("/memes")
         
     } catch (error) {
-        
-        console.log(error)
 
         return res.render("memes/create", {
             errorMsg: "Hubo un problema al crear el meme."
@@ -58,8 +53,6 @@ try {
     })
 
 } catch (error) {
-    
-    console.log(error)
 
     return res.render(`memes`, {
         errorMsg:"Hubo un problema al cargar los detalles del meme"
@@ -104,13 +97,10 @@ exports.deleteMeme = async (req, res) => {
     try {
         const deletedMeme = await Meme.findByIdAndRemove(memeID)
 
-        console.log(deletedMeme)
-
         res.redirect("/memes")
 
     } catch (error) {
-        console.log(error)
-
+ 
         res.redirect(`/memes/${memeID}`, {
             msgError: "No se pudieron guardar los cambios."
             
@@ -130,31 +120,12 @@ exports.fileUploader = async (req, res) => {
 
         const newMemeImage = await Meme.create({ imageUrl: req.file.path })
 
-        console.log(newMemeImage)
-
         return res.redirect("/memes")
 
     } catch (error) {
         console.log(`Error while uploading the image: ${error}`) 
     }
 
-
-//       .then(newlyCreatedMovieFromDB => {
-//         console.log(newlyCreatedMovieFromDB);
-//       })
-//       .catch(error => console.log(`Error while creating a new meme: ${error}`));
  };
 
 
-
-//   router.post('/movies/create', fileUploader.single('movie-cover-image'), (req, res) => {
-//     const { title, description } = req.body;
-   
-//     Movie.create({ title, description, imageUrl: req.file.path })
-//       .then(newlyCreatedMovieFromDB => {
-//         console.log(newlyCreatedMovieFromDB);
-//       })
-//       .catch(error => console.log(`Error while creating a new movie: ${error}`));
-//   });
-   
-//   module.exports = router;

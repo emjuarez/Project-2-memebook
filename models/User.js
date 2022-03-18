@@ -1,15 +1,11 @@
-// ./models/User.js
 
-// 1. IMPORTACIONES
 const mongoose = require("mongoose")
 
-
-// 2. SCHEMA
 const userSchema = mongoose.Schema({
 
 	username: {
 		type: String,
-		trim: true, // No puedes guardar en base de datos si mandas un dato con espacios en blanco
+		trim: true, 
 		required: true,
 		unique: true		
 	},
@@ -27,7 +23,7 @@ const userSchema = mongoose.Schema({
 	}
 }, 	
 	{
-		timestamps: true // Guardar la fecha y hora en la cual se creó un documento
+		timestamps: true 
 	}
 )
 
