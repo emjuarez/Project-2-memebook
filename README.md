@@ -1,37 +1,13 @@
-# Template para proyectos con Node y Handlebars
+# Memebook
 
-## Instalación
+## Web application for knowk more about internet culture 
 
-Para poder utilizar este template, es necesario que se descargue o se realice un `git clone`.
+### *Fullstack web app (server-side rendering)*
 
-Una vez hecho esto, realizar instalación de dependencias.
+**Technologies used:** Javascript, NodeJS, ExpressJS, MongoDB, MongooseJS, HandlebarsJS, HTML, CSS.
 
-```shell
-$ npm install 
-```
+We all need a good laugh from time to time, but have you ever wondered what is behind the images that make you laugh every day? Find out in meembok!
 
-Posteriormente, crear un archivo `.env` con las siguientes propiedades:
+## Credits
 
-```env
-# ESTABLECER EL PUERTO
-PORT= 
-
-# ESTABLECER LA BASE DE DATOS
-MONGODB_URI=
-
-# ESTABLECER LA PALABRA SECRETA PARA LAS COOKIES
-SECRET=
-
-```
-
-Puedes revisar como ejemplo el archivo `.env.example` con las propiedades.
-
-## Consideraciones
-
-- Si el despliegue sucede en un Cloud Environment (a.k.a. Heroku), vale la pena revisar tu sección de `config vars`.
-
-
-
-## Créditos
-
-Para cualquier inquietud, contáctame [zerauleuname@gmail.com](mailto:zerauleuname@gmail.com) 
+Send me an email! [emanueljuarez.webdev@gmail.com](mailto:emanueljuarez.webdev@gmail.com) 
